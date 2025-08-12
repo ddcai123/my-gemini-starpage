@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Microsoft YaHei', sans-serif;
+    color: rgba(255, 255, 255, 0.85);
+
+    /* --- 背景图设置 --- */
+    /* 1. 设置背景图片，并添加一个半透明的黑色渐变蒙层，以增强文字和粒子的对比度 */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('background.jpg');
+    
+    /* 2. 让背景图铺满整个屏幕 */
+    background-size: cover;
+    
+    /* 3. 将背景图居中显示 */
+    background-position: center center;
+    
+    /* 4. 防止背景图重复平铺 */
+    background-repeat: no-repeat;
+
+    /* 5. 固定背景图，使其在滚动时不动 */
+    background-attachment: fixed;
+    
+    /* 隐藏可能出现的滚动条 */
+    overflow: hidden; 
+}
+
+#particleCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.main-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding-top: 15vh;
+    pointer-events: none; /* 让标题不阻挡鼠标/触摸事件 */
+}
+
+h1, h2 {
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.7); /* 加强文字阴影，使其在复杂背景上更清晰 */
+}
+
+h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+h2 {
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+/* --- 控制面板样式 --- */
+#controls-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 20;
+    background: rgba(10, 10, 10, 0.5); /* 稍微调暗控制板背景以适应新背景图 */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 15px 20px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.control-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.control-item:last-child {
+    margin-bottom: 0;
+}
+
+.control-item label {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.control-item input[type="range"] {
+    width: 200px;
+    cursor: pointer;
+}
